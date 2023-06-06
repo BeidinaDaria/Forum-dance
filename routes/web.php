@@ -18,6 +18,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[AppController::class,"mainPage"])->name("app.main");
 
 //Articles
-Route::get('news',[ArticleController::class,'articlesList'])->name('articles.list');
-Route::get('/admin',[ArticleController::class,'createArticle'])->name('articles.create');
-Route::post('/admin',[ArticleController::class,'storeArticle'])->name('articles.store');
+Route::prefix('articles')->group(function(){
+    Route::get('/',[ArticleController::class,'index'])->name('articles.list');
+    Route::get('create',[ArticleController::class,'createArticle'])->name('articles.create');
+    Route::post('create',[ArticleController::class,'storeArticle'])->name('articles.store');
+    Route::get('{articleId}/edit',[ArticleController::class,'editArticle'])->name('articles.edit');
+    Route::put('{articleId}/edit',[ArticleController::class,'updateArticle'])->name('articles.edit');
+    Route::delete('{articleId}',[ArticleController::class,'deleteArticle'])->name('articles.delete');
+    Route::get('{articleSlug}',[ArticleController::class,'show'])->name('articles.show');
+
+});
+
