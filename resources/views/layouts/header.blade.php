@@ -20,7 +20,7 @@
             <a href="{{route("app.main")}}">{{__("app.menu.home")}}</a>
             <a href="{{route("articles.list")}}">{{__("app.menu.news")}}</a>
             <a href="cup.html">{{__("app.menu.news")}}</a>
-            <a href="schedule.html">{{__("app.menu.schedule")}}</a>
+            <a href="{{route("sportsmen.get-sportsmen-by-group",$group->slug)}}">{{__("app.menu.group")}}</a>
             <a href="#">{{__("app.menu.gallery")}}</a>
             <a href="{{route("auth.login-page")}}">{{__("app.menu.profile")}}</a>
             <a href="{{route("articles.create")}}">{{__("app.menu.dashboard")}}</a>
