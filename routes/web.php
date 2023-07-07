@@ -40,6 +40,7 @@ Route::middleware("locale")->group(function(){
         Route::post('register',[AuthControler::class,'storeUser'])->name('auth.storeUser');
         Route::get('login',[AuthControler::class,'loginPage'])->name('auth.login-page');
         Route::post('login',[AuthControler::class,'login'])->name('auth.login');
+        Route::get('group',[AppControler::class,'getSportsmenByGroup'])->middleware(['auth','is_admin'])->name('sportsmen.get-sportsmen-by-group');
     });
     Route::prefix('profile')->group(function(){
         Route::get('/',[SportsmenController::class,'index'])->name('sportsmen.list');
